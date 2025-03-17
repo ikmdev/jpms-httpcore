@@ -23,7 +23,10 @@ jobs:
     steps:
       - name: Pull Request Version Validation
         uses: ikmdev/maven-pull-request-version-validation-action@v2
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5e9b1727d41d31378ba6864bb8ecf974da7837a4
         
   general-build-job:
     name: General Build
