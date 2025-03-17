@@ -12,13 +12,13 @@
 	</parent>
 
 	<groupId>dev.ikm.jpms</groupId>
-	<artifactId>httpcore</artifactId>
+	<artifactId>httpcore5</artifactId>
 	<packaging>jar</packaging>
 	<version>${core.artifact.version}-${core.artifact.release}</version>
 
 	<properties>
 		<!-- change release here-->
-		<core.artifact.version>4.4.16</core.artifact.version>
+		<core.artifact.version>5.3.3</core.artifact.version>
 		<core.artifact.release>r5</core.artifact.release>
 
 		<maven.moditect.plugin>1.2.2.Final</maven.moditect.plugin>
@@ -33,6 +33,13 @@
 
 	<dependencies>
 		<!-- Has no transitive dependencies in this artifact -->
+				<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents.core5/httpcore5 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents.core5</groupId>
+			<artifactId>httpcore5</artifactId>
+			<version>5.3.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -67,14 +74,14 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.apache.httpcomponents</groupId>
-									<artifactId>httpcore</artifactId>
+									<groupId>org.apache.httpcomponents.core5</groupId>
+									<artifactId>httpcore5</artifactId>
 									<version>${core.artifact.version}</version>
 									<classifier>sources</classifier>
 								</artifactItem>
 								<artifactItem>
-									<groupId>org.apache.httpcomponents</groupId>
-									<artifactId>httpcore</artifactId>
+									<groupId>org.apache.httpcomponents.core5</groupId>
+									<artifactId>httpcore5</artifactId>
 									<version>${core.artifact.version}</version>
 									<classifier>javadoc</classifier>
 								</artifactItem>
@@ -127,11 +134,16 @@
 							<modules>
 								<module>
 									<artifact>
-										<groupId>org.apache.httpcomponents</groupId>
-										<artifactId>httpcore</artifactId>
+										<groupId>org.apache.httpcomponents.core5</groupId>
+										<artifactId>httpcore5</artifactId>
 										<version>${core.artifact.version}</version>
 									</artifact>
-									<moduleInfoSource>
+										<moduleInfo>
+										<name>dev.ikm.jpms.httpcore5</name>
+										<open>true</open>
+										<exports>*;</exports>
+									</moduleInfo>
+									<!-- <moduleInfoSource>
 										open module dev.ikm.jpms.httpcomponents.httpcore {
 											exports org.apache.http;
 											exports org.apache.http.annotation;
@@ -151,7 +163,7 @@
 											exports org.apache.http.ssl;
 											exports org.apache.http.util;
 										}
-									</moduleInfoSource>
+									</moduleInfoSource> -->
 								</module>
 							</modules>
 						</configuration>
